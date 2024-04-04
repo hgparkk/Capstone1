@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Capstone1</string>
+    <string name="ID">아이디</string>
+    <string name="PW">비밀번호</string>
+    <string name="name">이름</string>
+    <string name="birth">생년월일</string>
+    <string name="filter">≡ 필터</string>
+    <string name="text">text</string>
+
+    <!--필터 설정-->
+    <string name="sort">정렬</string>
+    <string name="theme">테마</string>
+    <string name="cat">카테고리</string>
+    <!--정렬-->
+    <string name="repu">평점순</string>
+    <string name="distance">거리순</string>
+    <!--테마-->
+    <string name="alone">혼자</string>
+    <string name="friend">친구</string>
+    <string name="date">데이트</string>
+    <string name="family">가족외식</string>
+    <string name="company">회식</string>
+    <string name="invite">접대</string>
+    <!--카테고리-->
+    <string name="kor">한식</string>
+    <string name="jpn">일식</string>
+    <string name="chn">중식</string>
+    <string name="wrd">세계음식</string>
+    <string name="wtn">양식/레스토랑</string>
+
+    <string name="setFilter">필터적용</string>
+</resources>
