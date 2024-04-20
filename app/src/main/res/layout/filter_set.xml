@@ -1,201 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FilterSet">
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/sort"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:layout_margin="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/sort"
-            android:textColor="#000000"
-            android:textSize="30sp"
-            android:layout_margin="10dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/repu"
-                android:layout_width="100dp"
-                android:layout_height="55dp"
-                android:text="@string/repu"
-                android:textSize="20sp"
-                android:background="@drawable/filter_set_button"
-                android:layout_margin="15dp"/>
-
-            <Button
-                android:id="@+id/distance"
-                android:layout_width="100dp"
-                android:layout_height="55dp"
-                android:text="@string/distance"
-                android:textSize="20sp"
-                android:background="@drawable/filter_set_button"
-                android:layout_margin="15dp"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/theme"
-            android:textColor="#000000"
-            android:textSize="30sp"
-            android:layout_margin="10dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/alone"
-                android:layout_width="100dp"
-                android:layout_height="55dp"
-                android:text="@string/alone"
-                android:textSize="20sp"
-                android:background="@drawable/filter_set_button"
-                android:layout_margin="15dp"/>
-
-            <Button
-                android:id="@+id/friend"
-                android:layout_width="100dp"
-                android:layout_height="55dp"
-                android:text="@string/friend"
-                android:textSize="20sp"
-                android:background="@drawable/filter_set_button"
-                android:layout_margin="15dp"/>
-
-            <Button
-                android:id="@+id/date"
-                android:layout_width="100dp"
-                android:layout_height="55dp"
-                android:text="@string/date"
-                android:textSize="20sp"
-                android:background="@drawable/filter_set_button"
-                android:layout_margin="15dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/familly"
-                android:layout_width="100dp"
-                android:layout_height="55dp"
-                android:text="@string/family"
-                android:textSize="20sp"
-                android:background="@drawable/filter_set_button"
-                android:layout_margin="15dp"/>
-
-            <Button
-                android:id="@+id/company"
-                android:layout_width="100dp"
-                android:layout_height="55dp"
-                android:text="@string/company"
-                android:textSize="20sp"
-                android:background="@drawable/filter_set_button"
-                android:layout_margin="15dp"/>
-
-            <Button
-                android:id="@+id/invite"
-                android:layout_width="100dp"
-                android:layout_height="55dp"
-                android:text="@string/invite"
-                android:textSize="20sp"
-                android:background="@drawable/filter_set_button"
-                android:layout_margin="15dp"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/cat"
-            android:textColor="#000000"
-            android:textSize="30sp"
-            android:layout_margin="10dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/kor"
-                android:layout_width="100dp"
-                android:layout_height="55dp"
-                android:text="@string/kor"
-                android:textSize="20sp"
-                android:background="@drawable/filter_set_button"
-                android:layout_margin="15dp"/>
-
-            <Button
-                android:id="@+id/jpn"
-                android:layout_width="100dp"
-                android:layout_height="55dp"
-                android:text="@string/jpn"
-                android:textSize="20sp"
-                android:background="@drawable/filter_set_button"
-                android:layout_margin="15dp"/>
-
-            <Button
-                android:id="@+id/chn"
-                android:layout_width="100dp"
-                android:layout_height="55dp"
-                android:text="@string/chn"
-                android:textSize="20sp"
-                android:background="@drawable/filter_set_button"
-                android:layout_margin="15dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/wtn"
-                android:layout_width="100dp"
-                android:layout_height="55dp"
-                android:text="@string/wtn"
-                android:textSize="16sp"
-                android:background="@drawable/filter_set_button"
-                android:layout_margin="15dp"/>
-
-            <Button
-                android:id="@+id/wrd"
-                android:layout_width="100dp"
-                android:layout_height="55dp"
-                android:text="@string/wrd"
-                android:textSize="20sp"
-                android:background="@drawable/filter_set_button"
-                android:layout_margin="15dp"/>
-
-        </LinearLayout>
+        android:layout_height="75dp"
+        android:orientation="horizontal">
 
         <Button
-            android:id="@+id/setFilter"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="@string/setFilter"
-            android:textSize="25sp"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/set_filter_button"
-            android:layout_margin="20dp"/>
+            android:id="@+id/repu"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:text="@string/repu"
+            android:textSize="20sp"
+            android:background="@drawable/filter_set_button"
+            android:layout_margin="15dp"/>
+
+        <Button
+            android:id="@+id/distance"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:text="@string/distance"
+            android:textSize="20sp"
+            android:background="@drawable/filter_set_button"
+            android:layout_margin="15dp"/>
 
     </LinearLayout>
 
-</FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/theme"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:layout_margin="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/alone"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:text="@string/alone"
+            android:textSize="20sp"
+            android:background="@drawable/filter_set_button"
+            android:layout_margin="15dp"/>
+
+        <Button
+            android:id="@+id/friend"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:text="@string/friend"
+            android:textSize="20sp"
+            android:background="@drawable/filter_set_button"
+            android:layout_margin="15dp"/>
+
+        <Button
+            android:id="@+id/date"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:text="@string/date"
+            android:textSize="20sp"
+            android:background="@drawable/filter_set_button"
+            android:layout_margin="15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/familly"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:text="@string/family"
+            android:textSize="20sp"
+            android:background="@drawable/filter_set_button"
+            android:layout_margin="15dp"/>
+
+        <Button
+            android:id="@+id/company"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:text="@string/company"
+            android:textSize="20sp"
+            android:background="@drawable/filter_set_button"
+            android:layout_margin="15dp"/>
+
+        <Button
+            android:id="@+id/invite"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:text="@string/invite"
+            android:textSize="20sp"
+            android:background="@drawable/filter_set_button"
+            android:layout_margin="15dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/cat"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:layout_margin="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/kor"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:text="@string/kor"
+            android:textSize="20sp"
+            android:background="@drawable/filter_set_button"
+            android:layout_margin="15dp"/>
+
+        <Button
+            android:id="@+id/jpn"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:text="@string/jpn"
+            android:textSize="20sp"
+            android:background="@drawable/filter_set_button"
+            android:layout_margin="15dp"/>
+
+        <Button
+            android:id="@+id/chn"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:text="@string/chn"
+            android:textSize="20sp"
+            android:background="@drawable/filter_set_button"
+            android:layout_margin="15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/wtn"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:text="@string/wtn"
+            android:textSize="16sp"
+            android:background="@drawable/filter_set_button"
+            android:layout_margin="15dp"/>
+
+        <Button
+            android:id="@+id/wrd"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:text="@string/wrd"
+            android:textSize="20sp"
+            android:background="@drawable/filter_set_button"
+            android:layout_margin="15dp"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/setFilterButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/setFilter"
+        android:textSize="25sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/set_filter_button"
+        android:layout_margin="20dp"/>
+
+</LinearLayout>
