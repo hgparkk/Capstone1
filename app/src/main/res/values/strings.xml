@@ -1,5 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name" tools:ignore="Typos">Capstone1</string>
+
+    <string name="check">확인</string>
+
     <!-- 검색 화면 -->
     <string name="filter">≡ 필터</string>
     <string name="text">text</string>
@@ -46,6 +49,12 @@
     <string name="PW">비밀번호</string>
     <string name="sign">회원가입</string>
     <string name="findID">ID/PW찾기</string>
+
+    <!--회원가입-->
+    <string name="pwCheck">비밀번호 확인</string>
     <string name="name">이름</string>
     <string name="birth">생년월일</string>
+    <string name="year">년</string>
+    <string name="month">월</string>
+    <string name="day">일</string>
 </resources>

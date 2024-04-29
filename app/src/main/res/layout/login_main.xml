@@ -1,73 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="200dp"
-    android:layout_marginStart="30dp"
-    android:layout_marginEnd="30dp"
-    android:layout_marginBottom="30dp"
-    android:orientation="vertical"
-    tools:context=".LoginMain">
-
-    <EditText
-        android:id="@+id/editID"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginBottom="10dp"
-        android:layout_gravity="center"
-        android:ems="15"
-        android:hint="@string/ID"
-        android:inputType="textPersonName"
-        android:text=""
-        android:importantForAutofill="no"/>
-
-    <EditText
-        android:id="@+id/editPW"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:ems="15"
-        android:hint="@string/PW"
-        android:inputType="textPassword"
-        android:importantForAutofill="no"/>
-
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:text="@string/login"
-        android:textSize="16sp"
-        android:textStyle="bold"/>
+    android:background="#FFFFFF">
 
     <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="60dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        tools:context=".LoginMain">
+
+        <EditText
+            android:id="@+id/editID"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:ems="15"
+            android:hint="@string/ID"
+            android:inputType="textPersonName"
+            android:text=""
+            android:importantForAutofill="no"/>
+
+        <EditText
+            android:id="@+id/editPW"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:ems="15"
+            android:hint="@string/PW"
+            android:inputType="textPassword"
+            android:importantForAutofill="no"/>
 
         <Button
-            android:id="@+id/sign"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#FFFFFF"
-            android:text="@string/sign"
-            android:textSize="13sp"
+            android:id="@+id/loginButton"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:text="@string/login"
+            android:textSize="16sp"
             android:textStyle="bold"/>
 
-        <Button
-            android:id="@+id/findIDPW"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#FFFFFF"
-            android:text="@string/findID"
-            android:textSize="13sp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="60dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/sign"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/normal_button"
+                android:text="@string/sign"
+                android:textSize="13sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/findIDPW"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/normal_button"
+                android:text="@string/findID"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>
