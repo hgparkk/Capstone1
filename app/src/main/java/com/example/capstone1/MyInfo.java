@@ -17,6 +17,7 @@ public class MyInfo extends AppCompatActivity {
         //등장 애니메이션
         overridePendingTransition(R.anim.from_right_enter,R.anim.none);
 
+        //내비게이션 바 뒤로가기 버튼
         OnBackPressedDispatcher onBackPressedDispatcher = getOnBackPressedDispatcher();
 
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {

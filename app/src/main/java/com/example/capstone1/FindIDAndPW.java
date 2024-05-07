@@ -1,5 +1,4 @@
 package com.example.capstone1;
-
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -7,11 +6,11 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Sign extends AppCompatActivity {
+public class FindIDAndPW extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign);
+        setContentView(R.layout.find_id_and_pw);
 
         //등장 애니메이션
         overridePendingTransition(R.anim.from_bottom_enter,R.anim.none);

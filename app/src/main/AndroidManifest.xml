@@ -23,6 +23,10 @@
         </activity>
         <activity android:name=".MyInfo"/>
         <activity android:name=".LoginMain"/>
+        <activity android:name=".ChangePW"/>
+        <activity android:name=".FindIDAndPW"/>
+        <activity android:name=".Sign"/>
+        <activity android:name=".RestInfo"/>
     </application>
 
 </manifest>

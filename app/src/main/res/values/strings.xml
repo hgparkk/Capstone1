@@ -7,7 +7,12 @@
     <string name="filter">≡ 필터</string>
     <string name="text">text</string>
 
-    <string name="right">right</string>
+    <string name="searchTitle">title</string>
+    <string name="searchCategory">cat</string>
+    <string name="searchTheme">theme</string>
+    <string name="searchStar">★ </string>
+    <string name="searchRepu">repu</string>
+    <string name="searchDistant">distant</string>
 
     <!--메인 화면-->
     <string name="searchView">가게 검색</string>
@@ -57,4 +62,34 @@
     <string name="year">년</string>
     <string name="month">월</string>
     <string name="day">일</string>
+
+    <!-- ID/PW 찾기-->
+    <string name="idFind">아이디 찾기</string>
+    <string name="pwReset">비밀번호 초기화</string>
+
+    <!-- 비밀번호 변경 -->
+    <string name="changePW">비밀번호 변경</string>
+
+    <!-- 가게 정보 -->
+    <string name="restName">restName</string>
+    <string name="bHour">영업시간</string>
+    <string name="address">주소</string>
+    <string name="menu">메뉴</string>
+    <string name="bHourInfo">bHour</string>
+    <string name="addressInfo">address</string>
+    <string name="menuInfo1">menu1</string>
+    <string name="menuInfo2">menu2</string>
+    <string name="menuInfo3">menu3</string>
+    <string name="seaMenu">메뉴 더보기 ></string>
+
+    <!-- 리뷰 정보 -->
+    <string name="myReview">내가 남긴 리뷰</string>
+    <string name="taste">맛</string>
+    <string name="price">가격</string>
+    <string name="service">서비스</string>
+    <string name="cleaness">청결도</string>
+    <string name="review">리뷰</string>
+    <string name="reviewInfo">reviewInfo</string>
+    <string name="reviewReset">리뷰 수정</string>
+
 </resources>

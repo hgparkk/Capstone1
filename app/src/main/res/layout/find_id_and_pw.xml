@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     tools:ignore="SpeakableTextPresentCheck"
-    tools:context=".Sign">
+    tools:context=".FindIDAndPW">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:padding="10dp"
-                android:text="@string/sign"
+                android:text="@string/findID"
                 android:textSize="30sp"/>
 
         </androidx.appcompat.widget.Toolbar>
@@ -45,8 +45,17 @@
                 android:layout_marginRight="30dp"
                 android:orientation="vertical" >
 
+                <TextView
+                    android:id="@+id/idFind"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/idFind"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
                 <EditText
-                    android:id="@+id/signName"
+                    android:id="@+id/idFindName"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginBottom="20dp"
@@ -56,58 +65,8 @@
                     android:text=""
                     android:importantForAutofill="no"/>
 
-                <EditText
-                    android:id="@+id/signID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="20dp"
-                    android:ems="10"
-                    android:hint="@string/ID"
-                    android:inputType="textPersonName"
-                    android:text=""
-                    android:importantForAutofill="no"/>
-
-                <EditText
-                    android:id="@+id/signPW"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="20dp"
-                    android:ems="10"
-                    android:hint="@string/PW"
-                    android:inputType="textPassword"
-                    android:text=""
-                    android:importantForAutofill="no"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/signPW2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="20dp"
-                        android:ems="10"
-                        android:hint="@string/pwCheck"
-                        android:inputType="textPassword"
-                        android:text=""
-                        android:importantForAutofill="no"/>
-
-                    <Button
-                        android:id="@+id/pwcheckbutton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="10dp"
-                        android:background="@drawable/filter_button"
-                        android:text="@string/check"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
                 <TextView
-                    android:id="@+id/signBirthtext"
+                    android:id="@+id/idFindBirthtext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
@@ -121,7 +80,7 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/signBirth"
+                        android:id="@+id/idFindBirth1"
                         android:layout_width="100dp"
                         android:layout_height="50dp"
                         android:layout_marginBottom="20dp"
@@ -132,7 +91,7 @@
                         android:text=""
                         android:importantForAutofill="no"/>
                     <EditText
-                        android:id="@+id/signBirth2"
+                        android:id="@+id/idFindBirth2"
                         android:layout_width="100dp"
                         android:layout_height="50dp"
                         android:layout_marginBottom="20dp"
@@ -143,7 +102,99 @@
                         android:text=""
                         android:importantForAutofill="no"/>
                     <EditText
-                        android:id="@+id/signBirth3"
+                        android:id="@+id/idFindBirth3"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="20dp"
+                        android:ems="10"
+                        android:hint="@string/day"
+                        android:inputType="textPersonName"
+                        android:text=""
+                        android:importantForAutofill="no"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/idFindButton"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/filter_button"
+                    android:text="@string/idFind"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/pwReset"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/pwReset"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/pwResetName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:hint="@string/name"
+                    android:inputType="textPersonName"
+                    android:text=""
+                    android:importantForAutofill="no"/>
+
+                <EditText
+                    android:id="@+id/pwResetID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:hint="@string/ID"
+                    android:inputType="textPersonName"
+                    android:text=""
+                    android:importantForAutofill="no"/>
+
+                <TextView
+                    android:id="@+id/pwResetBirthtext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/birth"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/pwResetBirth1"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:ems="10"
+                        android:hint="@string/year"
+                        android:inputType="textPersonName"
+                        android:text=""
+                        android:importantForAutofill="no"/>
+                    <EditText
+                        android:id="@+id/pwResetBirth2"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:ems="10"
+                        android:hint="@string/month"
+                        android:inputType="textPersonName"
+                        android:text=""
+                        android:importantForAutofill="no"/>
+                    <EditText
+                        android:id="@+id/pwResetBirth3"
                         android:layout_width="100dp"
                         android:layout_height="50dp"
                         android:layout_marginBottom="20dp"
@@ -159,9 +210,10 @@
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
                     android:layout_gravity="center"
                     android:background="@drawable/filter_button"
-                    android:text="@string/sign"
+                    android:text="@string/pwReset"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />

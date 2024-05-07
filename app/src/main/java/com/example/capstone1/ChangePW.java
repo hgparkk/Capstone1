@@ -1,5 +1,4 @@
 package com.example.capstone1;
-
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -7,11 +6,11 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Sign extends AppCompatActivity {
+public class ChangePW extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign);
+        setContentView(R.layout.change_pw);
 
         //등장 애니메이션
         overridePendingTransition(R.anim.from_bottom_enter,R.anim.none);
@@ -31,7 +30,7 @@ public class Sign extends AppCompatActivity {
         onBackPressedDispatcher.addCallback(this, callback);
 
         //Button 변수에 할당하기
-        Button backButton = findViewById(R.id.signBackButton);
+        Button backButton = findViewById(R.id.changePWBackButton);
 
         //뒤로가기 버튼
         backButton.setOnClickListener(v -> {

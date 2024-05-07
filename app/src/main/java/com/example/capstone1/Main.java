@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -13,10 +14,31 @@ public class Main extends AppCompatActivity {
 
     //자체변수 할당하기
     boolean fragmentSwitch = true;
+    FragmentManager manager;
+    FragmentTransaction ft;
+
+    private void fragmentReplace(Fragment fragment, String tag, Button searchButton, Button favRestButton)
+    {
+        ft=manager.beginTransaction();
+        ft.replace(R.id.mainFrameContainer, fragment, tag);
+        ft.commit();
+
+        searchButton.setBackgroundColor(Color.parseColor(fragmentSwitch ? "#A0A0A0" : "#FF7F00"));
+        searchButton.setTextColor(Color.parseColor(fragmentSwitch ? "#000000" : "#FFFFFF"));
+        favRestButton.setBackgroundColor(Color.parseColor(fragmentSwitch ? "#FF7F00" : "#A0A0A0"));
+        favRestButton.setTextColor(Color.parseColor(fragmentSwitch ? "#FFFFFF" : "#000000"));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        //시작할때부터 프래그먼트 띄운상태로 실행하기
+        manager = getSupportFragmentManager();
+        ft = manager.beginTransaction();
+        ft.replace(R.id.mainFrameContainer, new SearchFragment());
+        ft.commit();
 
         //EditText 변수에 할당하기
 
@@ -24,31 +46,20 @@ public class Main extends AppCompatActivity {
         Button myInfoButton = findViewById(R.id.myInfoButton);
         Button searchButton = findViewById(R.id.searchButton);
         Button favRestButton = findViewById(R.id.favRestButton);
+
         //TextView 변수에 할당하기
 
-        //시작할때부터 프래그먼트 띄운상태로 실행하기
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction ft = manager.beginTransaction();
-        ft.replace(R.id.mainFrameContainer, new SearchFragment());
-        ft.commit();
+        //Intent 변수에 할당하기
+        Intent myInfoIntent = new Intent(getApplicationContext(), MyInfo.class);
 
         //내정보 버튼
-        myInfoButton.setOnClickListener(v ->{
-                Intent myInfoIntent = new Intent(getApplicationContext(), MyInfo.class);
-                startActivity(myInfoIntent);
-        });
+        myInfoButton.setOnClickListener(v -> startActivity(myInfoIntent));
 
         //가게 검색 버튼
         searchButton.setOnClickListener(v ->{
                 if(!fragmentSwitch)
                 {
-                    ft.replace(R.id.mainFrameContainer, new SearchFragment(), "one");
-                    ft.commit();
-
-                    searchButton.setBackgroundColor(Color.parseColor("#FF7F00"));
-                    searchButton.setTextColor(Color.parseColor("#FFFFFF"));
-                    favRestButton.setBackgroundColor(Color.parseColor("#A0A0A0"));
-                    favRestButton.setTextColor(Color.parseColor("#000000"));
+                    fragmentReplace(new SearchFragment(),"one",searchButton,favRestButton);
                     fragmentSwitch=true;
                 }
         });
@@ -57,13 +68,7 @@ public class Main extends AppCompatActivity {
         favRestButton.setOnClickListener(v ->{
                 if(fragmentSwitch)
                 {
-                    ft.replace(R.id.mainFrameContainer, new FavRestFragment(), "two");
-                    ft.commit();
-
-                    searchButton.setBackgroundColor(Color.parseColor("#A0A0A0"));
-                    searchButton.setTextColor(Color.parseColor("#000000"));
-                    favRestButton.setBackgroundColor(Color.parseColor("#FF7F00"));
-                    favRestButton.setTextColor(Color.parseColor("#FFFFFF"));
+                    fragmentReplace(new FavRestFragment(),"two",searchButton,favRestButton);
                     fragmentSwitch=false;
                 }
         });

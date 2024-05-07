@@ -15,16 +15,17 @@
 
         <Button
             android:id="@+id/backButton"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:background="@drawable/ic_arrow_back_button"/>
 
         <TextView
-            android:layout_width="100dp"
+            android:id="@+id/needLogin"
+            android:layout_width="120dp"
             android:layout_height="match_parent"
             android:padding="10dp"
             android:text="@string/myInfo"
-            android:textSize="25sp"/>
+            android:textSize="30sp"/>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -51,22 +52,34 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/changePW"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
         android:background="#F0F0F0"
         android:text="@string/updatePW"
         android:textSize="25sp"/>
 
     <Button
+        android:id="@+id/resign"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:background="#F0F0F0"
         android:text="@string/resign"
         android:textSize="25sp"/>
 
     <Button
+        android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:background="#F0F0F0"
         android:text="@string/logout"
         android:textSize="25sp"/>
