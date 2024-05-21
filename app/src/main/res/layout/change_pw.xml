@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     tools:ignore="SpeakableTextPresentCheck"
-    tools:context=".ChangePW">
+    tools:context=".View.ChangePW">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -16,7 +16,8 @@
             android:id="@+id/changePWBackButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/ic_arrow_back_button"/>
+            android:background="@drawable/ic_arrow_back_button"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -67,27 +68,29 @@
                 <Button
                     android:id="@+id/pwCheckButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_height="48dp"
                     android:layout_marginEnd="10dp"
                     android:background="@drawable/filter_button"
                     android:text="@string/check"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/changePWButton"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:layout_gravity="center"
                 android:background="@drawable/filter_button"
                 android:text="@string/changePW"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
     </LinearLayout>
 

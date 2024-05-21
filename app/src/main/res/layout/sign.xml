@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     tools:ignore="SpeakableTextPresentCheck"
-    tools:context=".Sign">
+    tools:context=".View.Sign">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,8 @@
                 android:id="@+id/signBackButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:background="@drawable/ic_arrow_back_button"/>
+                android:background="@drawable/ic_arrow_back_button"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -95,76 +96,49 @@
                         android:importantForAutofill="no"/>
 
                     <Button
-                        android:id="@+id/pwcheckbutton"
+                        android:id="@+id/pwCheckButton"
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="48dp"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/filter_button"
                         android:text="@string/check"
                         android:textColor="#FFFFFF"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/signBirthtext"
+                    android:id="@+id/pwCheckResult"
+                    android:layout_marginBottom="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:text="@string/birth"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textSize="20sp"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/signBirth"
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginEnd="10dp"
-                        android:ems="10"
-                        android:hint="@string/year"
-                        android:inputType="textPersonName"
-                        android:text=""
-                        android:importantForAutofill="no"/>
-                    <EditText
-                        android:id="@+id/signBirth2"
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginEnd="10dp"
-                        android:ems="10"
-                        android:hint="@string/month"
-                        android:inputType="textPersonName"
-                        android:text=""
-                        android:importantForAutofill="no"/>
-                    <EditText
-                        android:id="@+id/signBirth3"
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="20dp"
-                        android:ems="10"
-                        android:hint="@string/day"
-                        android:inputType="textPersonName"
-                        android:text=""
-                        android:importantForAutofill="no"/>
-                </LinearLayout>
+                <EditText
+                    android:id="@+id/signBirth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:ems="10"
+                    android:hint="@string/birth"
+                    android:inputType="number"
+                    android:text=""
+                    android:importantForAutofill="no"/>
 
                 <Button
-                    android:id="@+id/signupbutton"
+                    android:id="@+id/signButton"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
-                    android:layout_marginTop="20dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/filter_button"
                     android:text="@string/sign"
                     android:textColor="@color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
             </LinearLayout>
 

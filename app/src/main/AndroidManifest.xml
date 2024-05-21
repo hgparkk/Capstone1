@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,9 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone1"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Main"
+            android:name=".View.Main"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,12 +24,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MyInfo"/>
-        <activity android:name=".LoginMain"/>
-        <activity android:name=".ChangePW"/>
-        <activity android:name=".FindIDAndPW"/>
-        <activity android:name=".Sign"/>
-        <activity android:name=".RestInfo"/>
+        <activity android:name=".View.MyInfo"/>
+        <activity android:name=".View.LoginMain"/>
+        <activity android:name=".View.ChangePW"/>
+        <activity android:name=".View.FindIDAndPW"/>
+        <activity android:name=".View.Sign"/>
+        <activity android:name=".View.RestInfoView"/>
     </application>
 
 </manifest>

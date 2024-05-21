@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="#F0F0F0"
     tools:ignore="SpeakableTextPresentCheck"
-    tools:context=".MyInfo">
+    tools:context=".View.MyInfo">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -17,7 +17,8 @@
             android:id="@+id/backButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/ic_arrow_back_button"/>
+            android:background="@drawable/ic_arrow_back_button"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/needLogin"
@@ -39,7 +40,8 @@
             android:id="@+id/loginAccontButton"
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:background="@drawable/ic_circle_person_button"/>
+            android:background="@drawable/ic_circle_person_button"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/loginInfoButton"
@@ -47,8 +49,9 @@
             android:layout_height="match_parent"
             android:background="#F0F0F0"
             android:text="@string/needLogin"
+            android:textColor="#A0A0A0"
             android:textSize="35sp"
-            android:textColor="#A0A0A0"/>
+            tools:ignore="TextContrastCheck" />
     </LinearLayout>
 
     <Button

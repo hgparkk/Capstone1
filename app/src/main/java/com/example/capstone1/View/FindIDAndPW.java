@@ -1,10 +1,12 @@
-package com.example.capstone1;
+package com.example.capstone1.View;
 import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.capstone1.R;
 
 public class FindIDAndPW extends AppCompatActivity {
     @Override

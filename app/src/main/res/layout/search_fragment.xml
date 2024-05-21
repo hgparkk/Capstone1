@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SearchFragment">
+    tools:context=".View.SearchFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +17,8 @@
             android:layout_height="match_parent"
             android:background="@drawable/filter_button"
             android:text="@string/filter"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            tools:ignore="TextContrastCheck" />
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/search"

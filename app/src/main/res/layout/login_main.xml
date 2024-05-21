@@ -13,9 +13,10 @@
 
         <Button
             android:id="@+id/loginBackButton"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/ic_arrow_back_button"/>
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/ic_arrow_back_button"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -28,7 +29,7 @@
         android:layout_marginBottom="30dp"
         android:orientation="vertical"
         android:background="#FFFFFF"
-        tools:context=".LoginMain">
+        tools:context=".View.LoginMain">
 
         <EditText
             android:id="@+id/editID"
@@ -76,7 +77,8 @@
                 android:background="@drawable/normal_button"
                 android:text="@string/sign"
                 android:textSize="13sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                tools:ignore="VisualLintButtonSize" />
 
             <Button
                 android:id="@+id/findIDPW"
@@ -86,7 +88,8 @@
                 android:background="@drawable/normal_button"
                 android:text="@string/findID"
                 android:textSize="13sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="VisualLintButtonSize" />
 
         </LinearLayout>
 

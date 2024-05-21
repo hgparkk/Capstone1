@@ -1,10 +1,12 @@
-package com.example.capstone1;
+package com.example.capstone1.View;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class RestInfo extends AppCompatActivity {
+import com.example.capstone1.R;
+
+public class RestInfoView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

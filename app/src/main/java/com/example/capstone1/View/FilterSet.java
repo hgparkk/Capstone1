@@ -1,4 +1,4 @@
-package com.example.capstone1;
+package com.example.capstone1.View;
 
 import android.os.Bundle;
 
@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.capstone1.R;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class FilterSet extends BottomSheetDialogFragment {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:background="#FFFFFF">
@@ -37,8 +38,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/searchCategory"
+                    android:textColor="#FF7F00"
                     android:textSize="20sp"
-                    android:textColor="#FF7F00"/>
+                    tools:ignore="TextContrastCheck" />
 
                 <View
                     android:layout_width="10dp"
@@ -49,8 +51,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/searchTheme"
+                    android:textColor="#FF7F00"
                     android:textSize="20sp"
-                    android:textColor="#FF7F00"/>
+                    tools:ignore="TextContrastCheck" />
 
             </LinearLayout>
 
@@ -77,8 +80,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/searchStar"
+                    android:textColor="#FF7F00"
                     android:textSize="20sp"
-                    android:textColor="#FF7F00"/>
+                    tools:ignore="TextContrastCheck" />
 
                 <View
                     android:layout_width="10dp"

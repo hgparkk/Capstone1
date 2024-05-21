@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     tools:ignore="SpeakableTextPresentCheck"
-    tools:context=".FindIDAndPW">
+    tools:context=".View.FindIDAndPW">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,8 @@
                 android:id="@+id/signBackButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:background="@drawable/ic_arrow_back_button"/>
+                android:background="@drawable/ic_arrow_back_button"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -61,9 +62,10 @@
                     android:layout_marginBottom="20dp"
                     android:ems="10"
                     android:hint="@string/name"
+                    android:importantForAutofill="no"
                     android:inputType="textPersonName"
                     android:text=""
-                    android:importantForAutofill="no"/>
+                    tools:ignore="DuplicateSpeakableTextCheck" />
 
                 <TextView
                     android:id="@+id/idFindBirthtext"
@@ -74,56 +76,18 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/idFindBirth1"
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginEnd="10dp"
-                        android:ems="10"
-                        android:hint="@string/year"
-                        android:inputType="textPersonName"
-                        android:text=""
-                        android:importantForAutofill="no"/>
-                    <EditText
-                        android:id="@+id/idFindBirth2"
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginEnd="10dp"
-                        android:ems="10"
-                        android:hint="@string/month"
-                        android:inputType="textPersonName"
-                        android:text=""
-                        android:importantForAutofill="no"/>
-                    <EditText
-                        android:id="@+id/idFindBirth3"
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="20dp"
-                        android:ems="10"
-                        android:hint="@string/day"
-                        android:inputType="textPersonName"
-                        android:text=""
-                        android:importantForAutofill="no"/>
-                </LinearLayout>
-
                 <Button
                     android:id="@+id/idFindButton"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
-                    android:layout_marginTop="20dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/filter_button"
                     android:text="@string/idFind"
                     android:textColor="@color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
                 <TextView
                     android:id="@+id/pwReset"
@@ -166,57 +130,19 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/pwResetBirth1"
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginEnd="10dp"
-                        android:ems="10"
-                        android:hint="@string/year"
-                        android:inputType="textPersonName"
-                        android:text=""
-                        android:importantForAutofill="no"/>
-                    <EditText
-                        android:id="@+id/pwResetBirth2"
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginEnd="10dp"
-                        android:ems="10"
-                        android:hint="@string/month"
-                        android:inputType="textPersonName"
-                        android:text=""
-                        android:importantForAutofill="no"/>
-                    <EditText
-                        android:id="@+id/pwResetBirth3"
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="20dp"
-                        android:ems="10"
-                        android:hint="@string/day"
-                        android:inputType="textPersonName"
-                        android:text=""
-                        android:importantForAutofill="no"/>
-                </LinearLayout>
-
                 <Button
                     android:id="@+id/signupbutton"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
+                    android:layout_gravity="center"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
-                    android:layout_gravity="center"
                     android:background="@drawable/filter_button"
                     android:text="@string/pwReset"
                     android:textColor="@color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
             </LinearLayout>
 
