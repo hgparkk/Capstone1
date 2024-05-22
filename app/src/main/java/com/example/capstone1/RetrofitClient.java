@@ -1,19 +1,30 @@
 package com.example.capstone1;
 
+import com.example.capstone1.UserInfo.UserInfoService;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
-    private static Retrofit retrofit;
-    private static final String BASE_URL = "http://10.0.2.2:3000";
+    private static RetrofitClient instance = null;
+    private UserInfoService userInfoService;
 
-    public static Retrofit getRetrofitInstance() {
-        if (retrofit == null) {
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
+    private RetrofitClient() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:3000") // 서버 URL로 변경
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        userInfoService = retrofit.create(UserInfoService.class);
+    }
+
+    public static synchronized RetrofitClient getInstance() {
+        if (instance == null) {
+            instance = new RetrofitClient();
         }
-        return retrofit;
+        return instance;
+    }
+
+    public UserInfoService getUserInfoService() {
+        return userInfoService;
     }
 }

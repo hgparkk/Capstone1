@@ -122,6 +122,7 @@
                     android:layout_marginBottom="20dp"
                     android:layout_marginEnd="10dp"
                     android:ems="10"
+                    android:maxLength="8"
                     android:hint="@string/birth"
                     android:inputType="number"
                     android:text=""
