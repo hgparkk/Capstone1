@@ -13,9 +13,9 @@ import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.activity.OnBackPressedDispatcher;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.capstone1.HashUtil;
 import com.example.capstone1.R;
 import com.example.capstone1.ServiceUtils;
 import com.example.capstone1.UserInfo.UserInfo;
@@ -117,7 +117,7 @@ public class Sign extends AppCompatActivity {
                 UserInfo userInfo = new UserInfo(userInfoID, HashedPassword, userInfoName, userInfoBirth, 0);
 
                 userInfoService.registerUserInfo(userInfo).enqueue(new Callback<UserInfoResponse>() {
-                    public void onResponse(Call<UserInfoResponse> call, Response<UserInfoResponse> response) {
+                    public void onResponse(@NonNull Call<UserInfoResponse> call, @NonNull Response<UserInfoResponse> response) {
                         if (response.isSuccessful()) {
                             Toast.makeText(Sign.this, "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show();
                             startActivity(loginIntent);
@@ -131,7 +131,7 @@ public class Sign extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<UserInfoResponse> call, Throwable t) {
+                    public void onFailure(@NonNull Call<UserInfoResponse> call, @NonNull Throwable t) {
                         Log.e("Sign", "유저정보 쓰기 실패", t);
                         Toast.makeText(Sign.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
