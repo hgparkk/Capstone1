@@ -5,8 +5,10 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface UserInfoService {
-    @POST("/post")
-    Call<UserInfo> createUserInfo(@Body UserInfo userInfo);
+    String BASE_PATH = "/userInfo";
+
+    @POST(BASE_PATH+"/register")
+    Call<UserInfoResponse> registerUserInfo(@Body UserInfo userInfo);
 
 //    @GET("/get/{id}")
 //    Call<UserInfoResponse> getUserInfo(@Query("data") String data);

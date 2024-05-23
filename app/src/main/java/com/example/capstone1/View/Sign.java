@@ -1,6 +1,6 @@
 package com.example.capstone1.View;
 
-import static com.example.capstone1.Hashing.HashUtil.hashPassword;
+import static com.example.capstone1.HashUtil.hashPassword;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,10 +15,11 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.capstone1.Hashing.HashUtil;
+import com.example.capstone1.HashUtil;
 import com.example.capstone1.R;
-import com.example.capstone1.RetrofitClient;
+import com.example.capstone1.ServiceUtils;
 import com.example.capstone1.UserInfo.UserInfo;
+import com.example.capstone1.UserInfo.UserInfoResponse;
 import com.example.capstone1.UserInfo.UserInfoService;
 
 import retrofit2.Call;
@@ -26,6 +27,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Sign extends AppCompatActivity {
+
+    //서버
     UserInfoService userInfoService;
 
     //비밀번호 체크 여부
@@ -71,6 +74,9 @@ public class Sign extends AppCompatActivity {
         //Intent 변수에 할당하기
         Intent loginIntent = new Intent(getApplicationContext(), LoginMain.class);
 
+        //서버 할당
+        userInfoService = ServiceUtils.getUserInfoService();
+
         //뒤로가기 버튼
         backButton.setOnClickListener(v -> {
             finish();
@@ -99,16 +105,19 @@ public class Sign extends AppCompatActivity {
         signButton.setOnClickListener(v -> {
             if(pwCheck)
             {
-                String userInfoID = signID.getText().toString();
-                String userInfoPW = signPW.getText().toString();
-                String userInfoName = signName.getText().toString();
-                String userInfoBirth = signBirth.getText().toString();
+                String userInfoID = signID.getText().toString().trim();
+                String userInfoPW = signPW.getText().toString().trim();
+                String userInfoName = signName.getText().toString().trim();
+                String userInfoBirth = signBirth.getText().toString().trim();
 
-                String HashedPassword = HashUtil.hashPassword(userInfoPW);
+                //비밀번호 암호화
+                String HashedPassword = hashPassword(userInfoPW);
 
+                //객체 생성
                 UserInfo userInfo = new UserInfo(userInfoID, HashedPassword, userInfoName, userInfoBirth, 0);
-                RetrofitClient.getInstance().getUserInfoService().createUserInfo(userInfo).enqueue(new Callback<UserInfo>(){
-                    public void onResponse(Call<UserInfo> call, Response<UserInfo> response) {
+
+                userInfoService.registerUserInfo(userInfo).enqueue(new Callback<UserInfoResponse>() {
+                    public void onResponse(Call<UserInfoResponse> call, Response<UserInfoResponse> response) {
                         if (response.isSuccessful()) {
                             Toast.makeText(Sign.this, "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show();
                             startActivity(loginIntent);
@@ -122,7 +131,7 @@ public class Sign extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<UserInfo> call, Throwable t) {
+                    public void onFailure(Call<UserInfoResponse> call, Throwable t) {
                         Log.e("Sign", "유저정보 쓰기 실패", t);
                         Toast.makeText(Sign.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                     }

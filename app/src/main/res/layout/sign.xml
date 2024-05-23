@@ -16,7 +16,8 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="#FFFFFF">
+            android:background="#FFFFFF"
+            tools:ignore="TextSizeCheck">
 
             <Button
                 android:id="@+id/signBackButton"
@@ -30,7 +31,7 @@
                 android:layout_height="match_parent"
                 android:padding="10dp"
                 android:text="@string/sign"
-                android:textSize="30sp"/>
+                android:textSize="30sp" />
 
         </androidx.appcompat.widget.Toolbar>
 

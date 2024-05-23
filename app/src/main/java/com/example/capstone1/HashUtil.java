@@ -1,4 +1,4 @@
-package com.example.capstone1.Hashing;
+package com.example.capstone1;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
