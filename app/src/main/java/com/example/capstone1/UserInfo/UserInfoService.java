@@ -2,16 +2,21 @@ package com.example.capstone1.UserInfo;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface UserInfoService {
     String BASE_PATH = "/userInfo";
 
+    @GET(BASE_PATH+"/idCompare")
+    Call<UserInfoResponse> idCompare(@Query("userID") String userID);
+
     @POST(BASE_PATH+"/register")
     Call<UserInfoResponse> registerUserInfo(@Body UserInfo userInfo);
 
-//    @GET("/get/{id}")
-//    Call<UserInfoResponse> getUserInfo(@Query("data") String data);
+    @POST(BASE_PATH+"/login")
+    Call<UserInfoResponse> loginUserInfo(@Body UserInfo userInfo);
 //
 //    @FormUrlEncoded
 //    @PUT("/put/{id}")

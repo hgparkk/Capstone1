@@ -1,7 +1,11 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="Typos">
     <string name="app_name" tools:ignore="Typos">Capstone1</string>
 
     <string name="check">확인</string>
+
+    <!-- 통신 실패 -->
+    <string name="failed">서버와의 통신에 실패하였습니다.</string>
 
     <!-- 검색 화면 -->
     <string name="filter">≡ 필터</string>
@@ -56,11 +60,14 @@
     <string name="findID">ID/PW찾기</string>
 
     <!--회원가입-->
+    <string name="idCompare">중복확인</string>
+    <string name="idSame">존재하는 아이디입니다.</string>
+    <string name="idDifferent">사용가능한 아이디입니다.</string>
     <string name="pwCheck">비밀번호 확인</string>
+    <string name="pwSame">비밀번호가 일치합니다.</string>
+    <string name="pwDifferent">비밀번호가 일치하지 않습니다.</string>
     <string name="name">이름</string>
     <string name="birth">생년월일8자리</string>
-    <string name="same">비밀번호가 일치합니다</string>
-    <string name="defferent">비밀번호가 일치하지 않습니다</string>
 
     <!-- ID/PW 찾기-->
     <string name="idFind">아이디 찾기</string>

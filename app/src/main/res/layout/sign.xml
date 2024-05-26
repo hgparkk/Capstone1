@@ -58,16 +58,41 @@
                     android:text=""
                     android:importantForAutofill="no"/>
 
-                <EditText
-                    android:id="@+id/signID"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="20dp"
-                    android:ems="10"
-                    android:hint="@string/ID"
-                    android:inputType="textPersonName"
-                    android:text=""
-                    android:importantForAutofill="no"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/signID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="20dp"
+                        android:ems="10"
+                        android:hint="@string/ID"
+                        android:inputType="textPersonName"
+                        android:text=""
+                        android:importantForAutofill="no"/>
+
+                    <Button
+                        android:id="@+id/idcompareButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/filter_button"
+                        android:text="@string/idCompare"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/idCompareResult"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"/>
 
                 <EditText
                     android:id="@+id/signPW"
