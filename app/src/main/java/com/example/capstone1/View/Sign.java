@@ -1,8 +1,5 @@
 package com.example.capstone1.View;
 
-import static com.example.capstone1.HashUtil.hashPassword;
-
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -20,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.capstone1.R;
 import com.example.capstone1.ServiceUtils;
+import com.example.capstone1.UserInfo.CompareIDInfo;
 import com.example.capstone1.UserInfo.UserInfo;
 import com.example.capstone1.UserInfo.UserInfoResponse;
 import com.example.capstone1.UserInfo.UserInfoService;
@@ -36,7 +34,7 @@ public class Sign extends AppCompatActivity {
     UserInfoService userInfoService;
 
     //아이디 중복확인 여부
-    boolean idCompare = true;
+    boolean idCompare = false;
 
     //비밀번호 체크 여부
     boolean pwCheck = false;
@@ -69,7 +67,7 @@ public class Sign extends AppCompatActivity {
 
         //Button 변수에 할당하기
         Button backButton = findViewById(R.id.signBackButton);
-        Button idCompareButton = findViewById(R.id.idcompareButton);
+        Button idCompareButton = findViewById(R.id.compareIDButton);
         Button pwCheckButton = findViewById(R.id.pwCheckButton);
         Button signButton = findViewById(R.id.signButton);
 
@@ -79,9 +77,6 @@ public class Sign extends AppCompatActivity {
         EditText signPW2 = findViewById(R.id.signPW2);
         EditText signName = findViewById(R.id.signName);
         EditText signBirth = findViewById(R.id.signBirth);
-
-        //Intent 변수에 할당하기
-        Intent loginIntent = new Intent(getApplicationContext(), LoginMain.class);
 
         //서버 할당
         userInfoService = ServiceUtils.getUserInfoService();
@@ -116,16 +111,16 @@ public class Sign extends AppCompatActivity {
         //아이디 중복확인
         idCompareButton.setOnClickListener(v -> {
             String userID = signID.getText().toString();
-            if(userID.length() > 4){
-                userInfoService.idCompare(userID).enqueue(new Callback<UserInfoResponse>() {
+            CompareIDInfo compareIDInfo = new CompareIDInfo(userID);
+            if (userID.length() > 4) {
+                userInfoService.compareID(compareIDInfo).enqueue(new Callback<UserInfoResponse>() {
                     @Override
                     public void onResponse(@NotNull Call<UserInfoResponse> call, @NotNull Response<UserInfoResponse> response) {
                         if (response.isSuccessful()) {
                             idCompareResult.setTextColor(Color.parseColor("#00FF7F"));
                             idCompareResult.setText(R.string.idDifferent);
                             idCompare = true;
-                        }
-                        else {
+                        } else {
                             idCompareResult.setTextColor(Color.parseColor("#FF0000"));
                             idCompareResult.setText(R.string.idSame);
                             idCompare = false;
@@ -138,10 +133,8 @@ public class Sign extends AppCompatActivity {
                         Log.e("Sign", "Error: ", t);
                     }
                 });
-            }
-            else
-            {
-                Toast.makeText(Sign.this, "아이디가 너무 짧습니다." , Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(Sign.this, "아이디가 너무 짧습니다.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -166,8 +159,7 @@ public class Sign extends AppCompatActivity {
 
         //비밀번호 확인 버튼
         pwCheckButton.setOnClickListener(v -> {
-            if(signPW.getText().toString().length() > 8)
-            {
+            if (signPW.getText().toString().length() > 7) {
                 if (signPW.getText().toString().equals(signPW2.getText().toString())) {
                     pwCheckResult.setTextColor(Color.parseColor("#00FF7F"));
                     pwCheckResult.setText(R.string.pwSame);
@@ -176,50 +168,57 @@ public class Sign extends AppCompatActivity {
                     pwCheckResult.setTextColor(Color.parseColor("#FF0000"));
                     pwCheckResult.setText(R.string.pwDifferent);
                 }
-            }
-            else
-            {
-                Toast.makeText(Sign.this, "비밀번호가 너무 짧습니다." , Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(Sign.this, "비밀번호가 너무 짧습니다.", Toast.LENGTH_SHORT).show();
             }
         });
 
         //회원가입 버튼
         signButton.setOnClickListener(v -> {
-            if (idCompare) {
-                if (pwCheck) {
-                    String userInfoID = signID.getText().toString().trim();
-                    String userInfoPW = signPW.getText().toString().trim();
-                    String userInfoName = signName.getText().toString().trim();
-                    String userInfoBirth = signBirth.getText().toString().trim();
 
-                    //비밀번호 암호화
-                    String HashedPassword = hashPassword(userInfoPW);
-
-                    //객체 생성
-                    UserInfo userInfo = new UserInfo(userInfoID, HashedPassword, userInfoName, userInfoBirth, 0);
-
-                    userInfoService.registerUserInfo(userInfo).enqueue(new Callback<UserInfoResponse>() {
-                        public void onResponse(@NonNull Call<UserInfoResponse> call, @NonNull Response<UserInfoResponse> response) {
-                            if (response.isSuccessful()) {
-                                Toast.makeText(Sign.this, "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show();
-                                startActivity(loginIntent);
-                            } else {
-                                Toast.makeText(Sign.this, "회원가입에 실패하였습니다 " + response.code(), Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(@NonNull Call<UserInfoResponse> call, @NonNull Throwable t) {
-                            Log.e("Sign", "유저정보 쓰기 실패", t);
-                            Toast.makeText(Sign.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                } else {
-                    Toast.makeText(Sign.this, "비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
-                }
-            } else {
-                Toast.makeText(Sign.this, "아이디 중복확인을 해주세요.", Toast.LENGTH_SHORT).show();
+            if (!idCompare) {
+                Toast.makeText(Sign.this, "생년월일을 올바르게 입력해주세요.", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            if (!pwCheck) {
+                Toast.makeText(Sign.this, "비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            String userInfoID = signID.getText().toString().trim();
+            String userInfoPW = signPW.getText().toString().trim();
+            String userInfoName = signName.getText().toString().trim();
+            String userInfoBirth = signBirth.getText().toString().trim();
+
+            if (userInfoName.isEmpty()) {
+                Toast.makeText(Sign.this, "이름을 입력해주세요", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (userInfoBirth.length() != 8) {
+                Toast.makeText(Sign.this, "생년월일을 올바르게 입력해주세요.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            //객체 생성
+            UserInfo userInfo = new UserInfo(userInfoID, userInfoPW, userInfoName, userInfoBirth);
+
+            userInfoService.register(userInfo).enqueue(new Callback<UserInfoResponse>() {
+                public void onResponse(@NonNull Call<UserInfoResponse> call, @NonNull Response<UserInfoResponse> response) {
+                    if (response.isSuccessful()) {
+                        Toast.makeText(Sign.this, "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
+                        Toast.makeText(Sign.this, "회원가입에 실패하였습니다 " + response.code(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(@NonNull Call<UserInfoResponse> call, @NonNull Throwable t) {
+                    Log.e("Sign", "유저정보 쓰기 실패", t);
+                    Toast.makeText(Sign.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
         });
     }
 }

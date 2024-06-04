@@ -54,4 +54,7 @@ dependencies {
     //lombok
     compileOnly libs.lombok
     annotationProcessor libs.lombok
+
+    //Gson
+    implementation libs.gson
 }

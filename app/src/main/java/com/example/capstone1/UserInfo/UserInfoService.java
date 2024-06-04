@@ -2,26 +2,29 @@ package com.example.capstone1.UserInfo;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 public interface UserInfoService {
     String BASE_PATH = "/userInfo";
 
-    @GET(BASE_PATH+"/idCompare")
-    Call<UserInfoResponse> idCompare(@Query("userID") String userID);
+    @POST(BASE_PATH+"/compareID")
+    Call<UserInfoResponse> compareID(@Body CompareIDInfo compareIDInfo);
 
     @POST(BASE_PATH+"/register")
-    Call<UserInfoResponse> registerUserInfo(@Body UserInfo userInfo);
+    Call<UserInfoResponse> register(@Body UserInfo userInfo);
 
     @POST(BASE_PATH+"/login")
-    Call<UserInfoResponse> loginUserInfo(@Body UserInfo userInfo);
-//
-//    @FormUrlEncoded
-//    @PUT("/put/{id}")
-//    Call<UserInfoResponse> putUserInfo(@Path("id") String id, @Field("data") String data);
-//
-//    @DELETE("/delete/{id}")
-//    Call<UserInfoResponse> deleteUserInfo(@Path("id") String id);
+    Call<UserInfoResponse> login(@Body LoginInfo loginInfo);
+
+    @POST(BASE_PATH+"/findID")
+    Call<FindIDInfoResponse> findID(@Body FindIDInfo findIDInfo);
+
+    @POST(BASE_PATH+"/checkChangePW")
+    Call<UserInfoResponse> checkChangePW(@Body ChangePWInfo changePWInfo);
+
+    @POST(BASE_PATH+"/changePW")
+    Call<UserInfoResponse> changePW(@Body UserInfo userInfo);
+
+    @POST(BASE_PATH+"/resign")
+    Call<UserInfoResponse> resignUser(@Body UserInfo userInfo);
 }

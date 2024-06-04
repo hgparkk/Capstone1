@@ -37,25 +37,21 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/loginAccontButton"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/ic_circle_person_button"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <Button
             android:id="@+id/loginInfoButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
             android:background="#F0F0F0"
             android:text="@string/needLogin"
             android:textColor="#A0A0A0"
             android:textSize="35sp"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck"
+            android:stateListAnimator="@null" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/changePW"
+        android:id="@+id/changePWButton"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
@@ -63,10 +59,13 @@
         android:layout_marginBottom="5dp"
         android:background="#F0F0F0"
         android:text="@string/updatePW"
-        android:textSize="25sp"/>
+        android:enabled="false"
+        android:visibility="gone"
+        android:textSize="25sp"
+        android:stateListAnimator="@null"/>
 
     <Button
-        android:id="@+id/resign"
+        android:id="@+id/resignButton"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
@@ -74,10 +73,13 @@
         android:layout_marginBottom="5dp"
         android:background="#F0F0F0"
         android:text="@string/resign"
-        android:textSize="25sp"/>
+        android:enabled="false"
+        android:visibility="gone"
+        android:textSize="25sp"
+        android:stateListAnimator="@null"/>
 
     <Button
-        android:id="@+id/logout"
+        android:id="@+id/logoutButton"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
@@ -85,5 +87,8 @@
         android:layout_marginBottom="5dp"
         android:background="#F0F0F0"
         android:text="@string/logout"
-        android:textSize="25sp"/>
+        android:enabled="false"
+        android:visibility="gone"
+        android:textSize="25sp"
+        android:stateListAnimator="@null"/>
 </LinearLayout>

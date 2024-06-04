@@ -39,41 +39,6 @@
                 android:textSize="40sp"
                 android:textColor="#000000"/>
 
-            <ImageView
-                android:id="@+id/restImage"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_circle_person_button"
-                tools:ignore="ImageContrastCheck" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/bHour"
-                    android:textColor="#808080"
-                    android:textSize="25sp"
-                    tools:ignore="TextContrastCheck" />
-
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent"/>
-
-                <TextView
-                    android:id="@+id/bHourInfo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/bHourInfo"
-                    android:textColor="#000000"
-                    android:textSize="25sp"/>
-
-            </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
@@ -100,80 +65,6 @@
                     android:textSize="25sp"/>
 
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/menu"
-                    android:textColor="#808080"
-                    android:textSize="25sp"
-                    tools:ignore="TextContrastCheck" />
-
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent"/>
-
-                <TextView
-                    android:id="@+id/menuInfo1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/menuInfo1"
-                    android:textColor="#000000"
-                    android:textSize="25sp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:orientation="horizontal">
-
-                <View
-                    android:layout_width="110dp"
-                    android:layout_height="match_parent"/>
-
-                <TextView
-                    android:id="@+id/menuInfo2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/menuInfo2"
-                    android:textColor="#000000"
-                    android:textSize="25sp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:orientation="horizontal">
-
-                <View
-                    android:layout_width="110dp"
-                    android:layout_height="match_parent"/>
-
-                <TextView
-                    android:id="@+id/menuInfo3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/menuInfo3"
-                    android:textColor="#000000"
-                    android:textSize="25sp"/>
-
-            </LinearLayout>
-
-            <Button
-                android:layout_width="170dp"
-                android:layout_height="60dp"
-                android:layout_gravity="end"
-                android:layout_margin="5dp"
-                android:background="@drawable/normal_button"
-                android:text="@string/seaMenu"
-                android:textSize="25sp"/>
 
             <TextView
                 android:layout_width="match_parent"

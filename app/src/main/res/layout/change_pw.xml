@@ -10,7 +10,8 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#FFFFFF">
+        android:background="#FFFFFF"
+        tools:ignore="TextSizeCheck">
 
         <Button
             android:id="@+id/changePWBackButton"
@@ -24,7 +25,7 @@
             android:layout_height="match_parent"
             android:padding="10dp"
             android:text="@string/changePW"
-            android:textSize="30sp"/>
+            android:textSize="30sp" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -69,7 +70,7 @@
                     android:id="@+id/pwCheckButton"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
                     android:background="@drawable/filter_button"
                     android:text="@string/check"
                     android:textColor="#FFFFFF"
@@ -77,6 +78,13 @@
                     android:textStyle="bold"
                     tools:ignore="TextContrastCheck" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/pwCheckResult"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"/>
 
             <Button
                 android:id="@+id/changePWButton"

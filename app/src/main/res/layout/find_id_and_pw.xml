@@ -16,7 +16,8 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="#FFFFFF">
+            android:background="#FFFFFF"
+            tools:ignore="TextSizeCheck">
 
             <Button
                 android:id="@+id/signBackButton"
@@ -30,7 +31,7 @@
                 android:layout_height="match_parent"
                 android:padding="10dp"
                 android:text="@string/findID"
-                android:textSize="30sp"/>
+                android:textSize="30sp" />
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -47,7 +48,7 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/idFind"
+                    android:id="@+id/findID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
@@ -56,7 +57,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/idFindName"
+                    android:id="@+id/findIDName"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginBottom="20dp"
@@ -67,17 +68,20 @@
                     android:text=""
                     tools:ignore="DuplicateSpeakableTextCheck" />
 
-                <TextView
-                    android:id="@+id/idFindBirthtext"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                <EditText
+                    android:id="@+id/findIDBirth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginBottom="5dp"
-                    android:text="@string/birth"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:ems="10"
+                    android:hint="@string/birth"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:text=""
+                    tools:ignore="DuplicateSpeakableTextCheck"/>
 
                 <Button
-                    android:id="@+id/idFindButton"
+                    android:id="@+id/findIDButton"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -90,7 +94,7 @@
                     tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
                 <TextView
-                    android:id="@+id/pwReset"
+                    android:id="@+id/resetPW"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
@@ -100,7 +104,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/pwResetName"
+                    android:id="@+id/resetPWName"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginBottom="20dp"
@@ -111,7 +115,7 @@
                     android:importantForAutofill="no"/>
 
                 <EditText
-                    android:id="@+id/pwResetID"
+                    android:id="@+id/resetPWID"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginBottom="20dp"
@@ -121,17 +125,19 @@
                     android:text=""
                     android:importantForAutofill="no"/>
 
-                <TextView
-                    android:id="@+id/pwResetBirthtext"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                <EditText
+                    android:id="@+id/resetPWBirth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginBottom="5dp"
-                    android:text="@string/birth"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:ems="10"
+                    android:hint="@string/birth"
+                    android:inputType="textPersonName"
+                    android:text=""
+                    android:importantForAutofill="no" />
 
                 <Button
-                    android:id="@+id/signupbutton"
+                    android:id="@+id/resetPWButton"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"

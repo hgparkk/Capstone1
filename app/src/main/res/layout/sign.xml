@@ -75,7 +75,7 @@
                         android:importantForAutofill="no"/>
 
                     <Button
-                        android:id="@+id/idcompareButton"
+                        android:id="@+id/compareIDButton"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:layout_marginEnd="10dp"

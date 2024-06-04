@@ -19,6 +19,7 @@ public class Main extends AppCompatActivity {
     FragmentManager manager;
     FragmentTransaction ft;
 
+    //프레그먼트 바꾸기 함수
     private void fragmentReplace(Fragment fragment, String tag, Button searchButton, Button favRestButton)
     {
         ft=manager.beginTransaction();

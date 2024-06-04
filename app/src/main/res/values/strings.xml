@@ -16,32 +16,40 @@
     <string name="searchTheme">theme</string>
     <string name="searchStar">★ </string>
     <string name="searchRepu">repu</string>
-    <string name="searchDistant">distant</string>
+    <string name="searchAddress">address</string>
 
     <!--메인 화면-->
     <string name="searchView">가게 검색</string>
     <string name="favRestList">맛집 리스트</string>
 
     <!--필터 설정-->
-    <string name="sort">정렬</string>
-    <string name="theme">테마</string>
     <string name="cat">카테고리</string>
-    <!--정렬-->
-    <string name="repu">평점순</string>
-    <string name="distance">거리순</string>
-    <!--테마-->
-    <string name="alone">혼자</string>
-    <string name="friend">친구</string>
-    <string name="date">데이트</string>
-    <string name="family">가족외식</string>
-    <string name="company">회식</string>
-    <string name="invite">접대</string>
     <!--카테고리-->
-    <string name="kor">한식</string>
-    <string name="jpn">일식</string>
-    <string name="chn">중식</string>
-    <string name="wrd">세계음식</string>
-    <string name="wtn">양식/레스토랑</string>
+    <string-array name="cat">
+        <item>한식</item>
+        <item>일식</item>
+        <item>중식</item>
+        <item>경양식</item>
+        <item>패스트푸드</item>
+        <item>식육/숯불구이</item>
+        <item>기타</item>
+        <item>호프/통닭</item>
+        <item>분식</item>
+        <item>김밥/도시락</item>
+        <item>정종/대포집/소주방</item>
+        <item>횟집</item>
+        <item>탕류/보신용</item>
+        <item>인도/태국</item>
+        <item>감성주점</item>
+        <item>출장조리</item>
+        <item>카페</item>
+        <item>패밀리레스트랑</item>
+        <item>냉면집</item>
+        <item>뷔페식</item>
+        <item>키즈카페</item>
+        <item>라이브카페</item>
+        <item>복어</item>
+    </string-array>
 
     <string name="setFilter">필터적용</string>
 
@@ -78,15 +86,8 @@
 
     <!-- 가게 정보 -->
     <string name="restName">restName</string>
-    <string name="bHour">영업시간</string>
     <string name="address">주소</string>
-    <string name="menu">메뉴</string>
-    <string name="bHourInfo">bHour</string>
-    <string name="addressInfo">address</string>
-    <string name="menuInfo1">menu1</string>
-    <string name="menuInfo2">menu2</string>
-    <string name="menuInfo3">menu3</string>
-    <string name="seaMenu">메뉴 더보기 ></string>
+    <string name="addressInfo">addressInfo</string>
 
     <!-- 리뷰 정보 -->
     <string name="myReview">내가 남긴 리뷰</string>

@@ -1,6 +1,9 @@
 package com.example.capstone1.View;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -11,12 +14,14 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.capstone1.HashUtil;
+import com.example.capstone1.ApplicationManager;
 import com.example.capstone1.R;
 import com.example.capstone1.ServiceUtils;
+import com.example.capstone1.UserInfo.LoginInfo;
 import com.example.capstone1.UserInfo.UserInfo;
 import com.example.capstone1.UserInfo.UserInfoResponse;
 import com.example.capstone1.UserInfo.UserInfoService;
+import com.google.gson.Gson;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -29,13 +34,24 @@ public class LoginMain extends AppCompatActivity {
     //서버
     UserInfoService userInfoService;
 
+    //로그인 정보 저장하기
+    private void saveLoginInfo(UserInfo userInfo, String token) {
+        SharedPreferences sharedPreferences = ApplicationManager.getAppContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(userInfo);
+        editor.putString("userInfo", json);
+        editor.putString("accessToken", token);
+        editor.apply();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_main);
 
         //등장 애니메이션
-        overridePendingTransition(R.anim.from_bottom_enter,R.anim.none);
+        overridePendingTransition(R.anim.from_bottom_enter, R.anim.none);
 
         //내비게이션 바 뒤로가기 버튼
         OnBackPressedDispatcher onBackPressedDispatcher = getOnBackPressedDispatcher();
@@ -44,8 +60,8 @@ public class LoginMain extends AppCompatActivity {
             @Override
             public void handleOnBackPressed() {
                 finish();
-                if(isFinishing()){
-                    overridePendingTransition(R.anim.none,R.anim.to_bottom_exit);
+                if (isFinishing()) {
+                    overridePendingTransition(R.anim.none, R.anim.to_bottom_exit);
                 }
             }
         };
@@ -71,8 +87,8 @@ public class LoginMain extends AppCompatActivity {
         //뒤로가기 버튼
         backButton.setOnClickListener(v -> {
             finish();
-            if(isFinishing()){
-                overridePendingTransition(R.anim.none,R.anim.to_bottom_exit);
+            if (isFinishing()) {
+                overridePendingTransition(R.anim.none, R.anim.to_bottom_exit);
             }
         });
 
@@ -84,22 +100,40 @@ public class LoginMain extends AppCompatActivity {
 
         //로그인 버튼
         login.setOnClickListener(v -> {
-            String userID = loginID.getText().toString();
-            String userPW = loginPW.getText().toString();
+            String userID = loginID.getText().toString().trim();
+            String userPW = loginPW.getText().toString().trim();
 
-            String hashedPW = HashUtil.hashPassword(userPW);
+            if (userID.isEmpty() || userPW.isEmpty()) {
+                Toast.makeText(LoginMain.this, "아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-            UserInfo userInfo = new UserInfo(userID, hashedPW, null, null, 0);
+            LoginInfo loginInfo = new LoginInfo(userID, userPW);
 
-            userInfoService.loginUserInfo(userInfo).enqueue(new Callback<UserInfoResponse>(){
+            userInfoService.login(loginInfo).enqueue(new Callback<UserInfoResponse>() {
                 @Override
-                public void onResponse(@NotNull Call<UserInfoResponse> call, @NotNull Response<UserInfoResponse> response){
-                    if(response.isSuccessful()){
-                        Toast.makeText(LoginMain.this,"로그인 되었습니다.",Toast.LENGTH_SHORT).show();
+                public void onResponse(@NotNull Call<UserInfoResponse> call, @NotNull Response<UserInfoResponse> response) {
+                    if (response.isSuccessful()) {
+                        UserInfoResponse userInfoResponse = response.body();
+                        if (userInfoResponse != null) {
+                            saveLoginInfo(userInfoResponse.getUserInfo(), userInfoResponse.getAccressToken());
+                            setResult(Activity.RESULT_OK);
+                            finish();
+                            if (isFinishing()) {
+                                overridePendingTransition(R.anim.none, R.anim.to_bottom_exit);
+                            }
+                        }
                     } else {
-                        Toast.makeText(LoginMain.this, "로그인에 실패하였습니다.",Toast.LENGTH_SHORT).show();
+                        if (response.code() == 401) {
+                            Toast.makeText(LoginMain.this, "비밀번호가 틀렸습니다." + response.code(), Toast.LENGTH_SHORT).show();
+                        } else if (response.code() == 404) {
+                            Toast.makeText(LoginMain.this, "존재하지 않는 유저입니다." + response.code(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(LoginMain.this, "로그인에 실패하였습니다." + response.code(), Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
+
                 @Override
                 public void onFailure(@NotNull Call<UserInfoResponse> call, @NotNull Throwable t) {
                     Log.e("Login", "Error: ", t);

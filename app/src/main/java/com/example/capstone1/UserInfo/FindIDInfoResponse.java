@@ -5,7 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserInfoResponse {
-    private UserInfo userInfo;
-    private String accressToken;
+public class FindIDInfoResponse {
+    private String userID;
 }
