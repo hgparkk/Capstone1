@@ -3,20 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="VisualLintBounds">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_margin="10dp"
         android:text="@string/cat"
         android:textColor="#000000"
         android:textSize="30sp"
-        android:layout_margin="10dp"/>
+        tools:ignore="TextSizeCheck" />
 
     <ListView
         android:id="@+id/filterSetListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <Button
         android:id="@+id/setFilterButton"
@@ -27,6 +30,6 @@
         android:text="@string/setFilter"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
-        tools:ignore="VisualLintButtonSize,TextContrastCheck" />
+        tools:ignore="TextContrastCheck,VisualLintButtonSize" />
 
 </LinearLayout>

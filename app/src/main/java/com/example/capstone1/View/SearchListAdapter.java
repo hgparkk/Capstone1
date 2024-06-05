@@ -9,15 +9,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.capstone1.R;
+import com.example.capstone1.RestInfo.RestInfo;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class SearchListAdapter extends BaseAdapter {
     Context context;
     LayoutInflater layoutInflater;
-    ArrayList<String> data;
+    List<RestInfo> data;
 
-    public SearchListAdapter(Context context, ArrayList<String> data) {
+    public SearchListAdapter(Context context, List<RestInfo> data) {
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
         this.data = data;
@@ -26,12 +27,11 @@ public class SearchListAdapter extends BaseAdapter {
     @Override
     public int getCount()
     {
-        return data.size();
+        return data == null ? 0 : data.size();
     }
 
     @Override
-    public Object getItem(int position)
-    {
+    public Object getItem(int position) {
         return data.get(position);
     }
 
@@ -42,14 +42,20 @@ public class SearchListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
-        View view = layoutInflater.inflate(R.layout.list_view,null);
-        TextView textView = view.findViewById(R.id.title);
-        textView.setText(data.get(position));
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View view = layoutInflater.inflate(R.layout.list_view, null);
 
-        View bodyView = view.findViewById(R.id.body);
+        // TextView 변수에 할당하기
+        TextView titleTextView = view.findViewById(R.id.title);
+        TextView catTextView = view.findViewById(R.id.cat);
+        TextView addressTextView = view.findViewById(R.id.address);
 
-        bodyView.setOnClickListener(v ->Toast.makeText(context, "click list body", Toast.LENGTH_SHORT).show());
+        RestInfo restInfo = data.get(position);
+        titleTextView.setText(restInfo.getRestName());
+        catTextView.setText(restInfo.getCat());
+        addressTextView.setText(restInfo.getAddress());
+
+        view.setOnClickListener(v -> Toast.makeText(context, "가게 이름은 " + restInfo.getRestName() + "입니다.", Toast.LENGTH_SHORT).show());
 
         return view;
     }
