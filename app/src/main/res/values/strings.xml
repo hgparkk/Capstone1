@@ -4,12 +4,10 @@
 
     <string name="check">확인</string>
 
-    <!-- 통신 실패 -->
-    <string name="failed">서버와의 통신에 실패하였습니다.</string>
-
     <!-- 검색 화면 -->
     <string name="filter">≡ 필터</string>
     <string name="text">text</string>
+    <string name="emptyResult">검색 결과가 없습니다</string>
 
     <string name="searchTitle">title</string>
     <string name="searchCategory">cat</string>
@@ -24,6 +22,8 @@
 
     <!--필터 설정-->
     <string name="cat">카테고리</string>
+    <string name="fromRepu">평점순</string>
+    <string name="fromDate">작성순</string>
     <!--카테고리-->
     <string-array name="cat">
         <item>한식</item>
@@ -88,15 +88,27 @@
     <string name="restName">restName</string>
     <string name="address">주소</string>
     <string name="addressInfo">addressInfo</string>
+    <string name="avgRepu">평점평균</string>
+    <string name="avgRepuInfo">avgRepu</string>
+    <string name="viewAllReviews">리뷰전체보기 ></string>
+    <string name="makeReview">리뷰쓰러가기</string>
+    <string name="makeFavRest">맛집등록하기</string>
+    <string name="deleteFavRest">맛집삭제하기</string>
 
     <!-- 리뷰 정보 -->
     <string name="myReview">내가 남긴 리뷰</string>
+    <string name="noReview">남겨진 리뷰가 없습니다.</string>
     <string name="taste">맛</string>
     <string name="price">가격</string>
     <string name="service">서비스</string>
     <string name="cleaness">청결도</string>
     <string name="review">리뷰</string>
-    <string name="reviewInfo">reviewInfo</string>
-    <string name="reviewReset">리뷰 수정</string>
+    <string name="reviewInfo">리뷰 입력</string>
+    <string name="reviewReset">리뷰수정하기</string>
+    <string name="registReview">리뷰 등록</string>
+    <string name="updateReview">리뷰 수정</string>
+    <string name="deleteReview">리뷰 삭제</string>
+    <string name="reviewID">리뷰 아이디</string>
+    <string name="createat">작성 시간</string>
 
 </resources>

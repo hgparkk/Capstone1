@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:background="@drawable/search_result">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:baselineAligned="true">
+
+            <TextView
+                android:id="@+id/id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/reviewID"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                tools:ignore="TextContrastCheck"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/searchStar"
+                    android:textColor="#FF7F00"
+                    android:textSize="20sp"
+                    tools:ignore="TextContrastCheck" />
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="0dp"/>
+
+                <TextView
+                    android:id="@+id/repu"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/searchRepu"
+                    android:textSize="20sp"
+                    tools:ignore="TextSizeCheck" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="@string/review"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:background="@drawable/review_box"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/create_at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="@string/createat"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+</FrameLayout>

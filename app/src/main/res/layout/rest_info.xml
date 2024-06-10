@@ -11,7 +11,8 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#D7DDE4">
+        android:background="#D7DDE4"
+        tools:ignore="TextSizeCheck">
 
         <Button
             android:id="@+id/backButton"
@@ -19,6 +20,17 @@
             android:layout_height="48dp"
             android:background="@drawable/ic_arrow_back_button"
             tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/restName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/restName"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="#000000"
+            android:textSize="40sp" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -28,20 +40,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/restName"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginStart="10dp"
-                android:text="@string/restName"
-                android:textSize="40sp"
-                android:textColor="#000000"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -59,10 +64,81 @@
                 <TextView
                     android:id="@+id/addressInfo"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="@string/addressInfo"
                     android:textColor="#000000"
                     android:textSize="25sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="35dp"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                tools:ignore="TextSizeCheck">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/avgRepu"
+                    android:textColor="#808080"
+                    android:textSize="25sp"
+                    tools:ignore="TextContrastCheck,TextSizeCheck" />
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/avgRepuInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/avgRepuInfo"
+                    android:textColor="#000000"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/viewAllReview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:background="@drawable/normal_button"
+                android:text="@string/viewAllReviews"
+                android:textSize="17sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/manageReview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/rest_info_button"
+                    android:text="@string/makeReview"
+                    android:textSize="17sp"
+                    tools:ignore="VisualLintButtonSize" />
+
+                <Button
+                    android:id="@+id/manageFavRest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/rest_info_button"
+                    android:text="@string/makeFavRest"
+                    android:textSize="17sp"
+                    tools:ignore="VisualLintButtonSize" />
 
             </LinearLayout>
 
@@ -71,126 +147,154 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
+                android:layout_marginStart="10dp"
                 android:text="@string/myReview"
                 android:textSize="40sp"
                 android:textColor="#000000"/>
-            
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:orientation="horizontal">
-                
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/taste"
-                    android:textSize="25sp"/>
-
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="0dp"/>
-
-                <RatingBar
-                    android:id="@+id/tasteRating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    style="@style/Widget.AppCompat.RatingBar.Indicator"/>
-                
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/price"
-                    android:textSize="25sp"/>
-
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="0dp"/>
-
-                <RatingBar
-                    android:id="@+id/priceRating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    style="@style/Widget.AppCompat.RatingBar.Indicator"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/service"
-                    android:textSize="25sp"/>
-
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="0dp"/>
-
-                <RatingBar
-                    android:id="@+id/serviceRating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    style="@style/Widget.AppCompat.RatingBar.Indicator"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/cleaness"
-                    android:textSize="25sp"/>
-
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="0dp"/>
-
-                <RatingBar
-                    android:id="@+id/cleanessRating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    style="@style/Widget.AppCompat.RatingBar.Indicator"/>
-
-            </LinearLayout>
 
             <TextView
-                android:layout_width="100dp"
-                android:layout_height="35dp"
-                android:text="@string/review"
-                android:textSize="25sp"/>
-
-            <TextView
-                android:id="@+id/myReview"
+                android:id="@+id/noReview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/review_box"
-                android:text="@string/reviewInfo"
-                android:textSize="25sp"/>
-            
-            <Button
-                android:id="@+id/reviewResetButton"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:layout_gravity="center"
-                android:background="@drawable/normal_button"
-                android:text="@string/reviewReset"
-                android:textSize="25sp"/>
+                android:gravity="center"
+                android:text="@string/noReview"
+                android:textSize="25sp" />
+
+            <LinearLayout
+                android:id="@+id/reviewLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:orientation="horizontal"
+                    tools:ignore="TextSizeCheck">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/taste"
+                        android:textSize="25sp" />
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="0dp" />
+
+                    <RatingBar
+                        android:id="@+id/tasteRating"
+                        style="@style/Widget.AppCompat.RatingBar.Indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:isIndicator="true"
+                        android:numStars="5"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/price"
+                        android:textSize="25sp"/>
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="0dp"/>
+
+                    <RatingBar
+                        android:id="@+id/priceRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        style="@style/Widget.AppCompat.RatingBar.Indicator"
+                        android:isIndicator="true"
+                        android:numStars="5"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/service"
+                        android:textSize="25sp"/>
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="0dp"/>
+
+                    <RatingBar
+                        android:id="@+id/serviceRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        style="@style/Widget.AppCompat.RatingBar.Indicator"
+                        android:isIndicator="true"
+                        android:numStars="5"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/cleaness"
+                        android:textSize="25sp"/>
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="0dp"/>
+
+                    <RatingBar
+                        android:id="@+id/cleanessRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        style="@style/Widget.AppCompat.RatingBar.Indicator"
+                        android:isIndicator="true"
+                        android:numStars="5"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:text="@string/review"
+                    android:textSize="25sp"
+                    tools:ignore="TextSizeCheck" />
+
+                <TextView
+                    android:id="@+id/myReview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/review_box"
+                    android:text="@string/reviewInfo"
+                    android:textColor="#000000"
+                    android:textSize="25sp"/>
+
+                <Button
+                    android:id="@+id/deleteReview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/rest_info_button"
+                    android:text="@string/deleteReview"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

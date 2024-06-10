@@ -1,56 +1,84 @@
 package com.example.capstone1.View;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.capstone1.FavRest.ClassForResponse;
 import com.example.capstone1.R;
 
-import java.util.ArrayList;
+import org.jetbrains.annotations.NotNull;
 
-public class FavRestListAdapter extends BaseAdapter {
-    Context context;
-    LayoutInflater layoutInflater;
-    ArrayList<String> data;
+import java.text.DecimalFormat;
+import java.util.List;
 
-    public FavRestListAdapter(Context context, ArrayList<String> data) {
-        this.context = context;
-        this.layoutInflater = LayoutInflater.from(context);
-        this.data = data;
+public class FavRestListAdapter extends RecyclerView.Adapter<FavRestListAdapter.ViewHolder> {
+    private List<ClassForResponse> dataList;
+    private final FavRestListAdapter.OnItemClickListener listener;
+
+    public FavRestListAdapter(List<ClassForResponse> dataList, FavRestListAdapter.OnItemClickListener listener) {
+        this.dataList = dataList;
+        this.listener = listener;
+    }
+
+    @NotNull
+    @Override
+    public FavRestListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new FavRestListAdapter.ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.rest_list_view, parent, false));
+    }
+
+    //항목들 정보에 맞게 세팅하기
+    @Override
+    public void onBindViewHolder(@NotNull FavRestListAdapter.ViewHolder holder, int position) {
+        ClassForResponse data = dataList.get(position);
+        holder.titleTextView.setText(data.getRestName());
+        String visibleCat = "# "+data.getCat();
+        holder.catTextView.setText(visibleCat);
+        DecimalFormat decimalFormat = new DecimalFormat("#,##0.0");
+        String formattedValue = decimalFormat.format(data.getAvgRepu());
+        holder.repuTextView.setText(formattedValue);
+
+        //항목이 클릭되었을 때
+        holder.body.setOnClickListener(v -> listener.onItemClick(data));
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(ClassForResponse item);
+    }
+
+    //데이터가 바뀌었음을 알리기
+    @SuppressLint("NotifyDataSetChanged")
+    public void updateDataList(List<ClassForResponse> restInfoList){
+        this.dataList = restInfoList;
+        notifyDataSetChanged();
     }
 
     @Override
-    public int getCount()
-    {
-        return data.size();
+    public int getItemCount() {
+        return dataList.size();
     }
 
-    @Override
-    public Object getItem(int position)
-    {
-        return data.get(position);
-    }
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
-    @Override
-    public long getItemId(int position)
-    {
-        return position;
-    }
+        //TextView 변수 선언
+        TextView titleTextView;
+        TextView catTextView;
+        TextView repuTextView;
+        LinearLayout body;
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent){
-        View view = layoutInflater.inflate(R.layout.list_view,null);
-        TextView textView = view.findViewById(R.id.title);
-        textView.setText(data.get(position));
+        public ViewHolder(@NotNull View view){
+            super(view);
 
-        View bodyView = view.findViewById(R.id.body);
-
-        bodyView.setOnClickListener(v ->Toast.makeText(context, "click list body", Toast.LENGTH_SHORT).show());
-
-        return view;
+            //TextView 변수에 할당하기
+            titleTextView = view.findViewById(R.id.title);
+            catTextView = view.findViewById(R.id.cat);
+            repuTextView = view.findViewById(R.id.repu);
+            body = view.findViewById(R.id.body);
+        }
     }
 }

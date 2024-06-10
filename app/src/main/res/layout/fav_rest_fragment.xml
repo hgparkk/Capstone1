@@ -1,36 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".View.FavRestFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/filterButton"
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/filter_button"
-            android:text="@string/filter"
-            android:textColor="#FFFFFF"
-            tools:ignore="TextContrastCheck" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/search"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/search_view" />
+            android:background="@drawable/search_view"
+            app:iconifiedByDefault="false"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/favRestListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/favRestListView"
+    <TextView
+        android:id="@+id/empty"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="@string/emptyResult"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
 
-</LinearLayout>
+</FrameLayout>

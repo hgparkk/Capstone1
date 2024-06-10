@@ -26,7 +26,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/searchTitle"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                tools:ignore="TextContrastCheck"/>
 
             <TextView
                 android:id="@+id/cat"
@@ -40,9 +43,8 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_margin="10dp"
             android:orientation="vertical">
 
@@ -50,11 +52,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -78,22 +75,9 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"/>
-
-                <TextView
-                    android:id="@+id/address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/searchAddress"
-                    android:textSize="20sp"/>
-            </LinearLayout>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp" />
 
         </LinearLayout>
 

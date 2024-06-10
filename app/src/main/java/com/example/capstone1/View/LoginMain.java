@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -43,6 +45,21 @@ public class LoginMain extends AppCompatActivity {
         editor.putString("userInfo", json);
         editor.putString("accessToken", token);
         editor.apply();
+    }
+
+    //네트워크 연결 여부
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager != null) {
+            Network network = connectivityManager.getActiveNetwork();
+            if (network != null) {
+                NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(network);
+                return networkCapabilities != null &&
+                        networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
+            }
+            return false;
+        }
+        return false;
     }
 
     @Override
@@ -125,9 +142,9 @@ public class LoginMain extends AppCompatActivity {
                         }
                     } else {
                         if (response.code() == 401) {
-                            Toast.makeText(LoginMain.this, "비밀번호가 틀렸습니다." + response.code(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginMain.this, "비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show();
                         } else if (response.code() == 404) {
-                            Toast.makeText(LoginMain.this, "존재하지 않는 유저입니다." + response.code(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginMain.this, "존재하지 않는 유저입니다.", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(LoginMain.this, "로그인에 실패하였습니다." + response.code(), Toast.LENGTH_SHORT).show();
                         }
@@ -136,8 +153,11 @@ public class LoginMain extends AppCompatActivity {
 
                 @Override
                 public void onFailure(@NotNull Call<UserInfoResponse> call, @NotNull Throwable t) {
-                    Log.e("Login", "Error: ", t);
-                    Toast.makeText(LoginMain.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    if (!isNetworkAvailable()) {
+                        Toast.makeText(LoginMain.this, "인터넷 상태가 불안정합니다.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(LoginMain.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         });

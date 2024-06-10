@@ -1,6 +1,10 @@
 package com.example.capstone1.View;
 
+import android.content.Context;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -38,6 +42,21 @@ public class Sign extends AppCompatActivity {
 
     //비밀번호 체크 여부
     boolean pwCheck = false;
+
+    //네트워크 연결 여부
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager != null) {
+            Network network = connectivityManager.getActiveNetwork();
+            if (network != null) {
+                NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(network);
+                return networkCapabilities != null &&
+                        networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
+            }
+            return false;
+        }
+        return false;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -209,14 +228,17 @@ public class Sign extends AppCompatActivity {
                         Toast.makeText(Sign.this, "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show();
                         finish();
                     } else {
-                        Toast.makeText(Sign.this, "회원가입에 실패하였습니다 " + response.code(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Sign.this, "회원가입에 실패하였습니다" + response.code(), Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onFailure(@NonNull Call<UserInfoResponse> call, @NonNull Throwable t) {
-                    Log.e("Sign", "유저정보 쓰기 실패", t);
-                    Toast.makeText(Sign.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    if (!isNetworkAvailable()) {
+                        Toast.makeText(Sign.this, "인터넷 상태가 불안정합니다.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(Sign.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         });

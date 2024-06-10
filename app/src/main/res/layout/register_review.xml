@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".View.RegisterReview">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FAFAFA"
+        tools:ignore="TextSizeCheck">
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/ic_arrow_back_button"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/restName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/restName"
+            android:textColor="#000000"
+            android:textSize="40sp"
+            tools:ignore="TextSizeCheck" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/reviewLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:orientation="horizontal"
+            tools:ignore="TextSizeCheck">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="@string/taste"
+                android:textSize="25sp" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="0dp" />
+
+            <RatingBar
+                android:id="@+id/tasteRating"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:stepSize="1"
+                android:numStars="5"
+                android:isIndicator="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="@string/price"
+                android:textSize="25sp"/>
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="0dp"/>
+
+            <RatingBar
+                android:id="@+id/priceRating"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:stepSize="1"
+                android:numStars="5"
+                android:isIndicator="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="@string/service"
+                android:textSize="25sp"/>
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="0dp"/>
+
+            <RatingBar
+                android:id="@+id/serviceRating"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:stepSize="1"
+                android:numStars="5"
+                android:isIndicator="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="@string/cleaness"
+                android:textSize="25sp"/>
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="0dp"/>
+
+            <RatingBar
+                android:id="@+id/cleanessRating"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:stepSize="1"
+                android:numStars="5"
+                android:isIndicator="false"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/review"
+            android:textSize="25sp"
+            tools:ignore="TextSizeCheck" />
+
+        <EditText
+            android:id="@+id/myReview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/review_box"
+            android:gravity="top"
+            android:hint="@string/reviewInfo"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:maxLength="200"
+            android:minLines="5"
+            android:padding="10dp"
+            android:textColor="#000000"
+            android:textColorHint="#A0A0A0"
+            android:textSize="25sp"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        <Button
+            android:id="@+id/sendReview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:background="@drawable/rest_info_button"
+            android:text="@string/registReview"
+            android:textSize="25sp"
+            tools:ignore="VisualLintButtonSize" />
+
+    </LinearLayout>
+
+</LinearLayout>
